@@ -12,7 +12,7 @@ startGame.addEventListener('click', () => {
 
 });
 
-const getRandomPhraseArray = (arr) => {
+const getRandomPhraseArray = (arr) => { /*Returns an index value for the 'phrases array'*/
    /*Gets random number*/
    let randomNumber = Math.floor(Math.random() * phrases.length);
    return arr[randomNumber];
@@ -21,7 +21,7 @@ const getRandomPhraseArray = (arr) => {
 
 const addPhraseToDisplay = (arr) => {
     
-    for(i=0; i<arr.length; i++) {
+    for(i=0; i<arr.length; i++) { /*for loop cycles through length of a phrase in array - creates an li - appends it to a ul*/
         let li = document.createElement('li');
         li.textContent = arr[i];
         phraseVariable.appendChild(li);
@@ -35,6 +35,6 @@ const addPhraseToDisplay = (arr) => {
     }
 
 }
-const randomPhrase = getRandomPhraseArray(phrases)
+const randomPhrase = getRandomPhraseArray(phrases) /*Returns an index value from the phrases array and assigns it to the variable*/
 
-addPhraseToDisplay(randomPhrase);
+addPhraseToDisplay(randomPhrase); /*Adds index value returned from thr getRandomPhraseArray and displays it by creating li elements for each letter*/
