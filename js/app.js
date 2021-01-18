@@ -20,9 +20,21 @@ const getRandomPhraseArray = (arr) => {
 }
 
 const addPhraseToDisplay = (arr) => {
+    
     for(i=0; i<arr.length; i++) {
+        let li = document.createElement('li');
+        li.textContent = arr[i];
+        phraseVariable.appendChild(li);
+        
+        if(arr[i] !== ' ') {
+            li.className = 'letter';
+        } else {
+            li.className = 'space';
 
-
+        }
     }
 
 }
+const randomPhrase = getRandomPhraseArray(phrases)
+
+addPhraseToDisplay(randomPhrase);
