@@ -29,9 +29,9 @@ const addPhraseToDisplay = (arr) => {
         phraseVariable.appendChild(li);
         
         if(arr[i] !== ' ') {
-            li.className = 'letter';
+            li.classList.add('letter');
         } else {
-            li.className = 'space';
+            li.classList.add('space');
 
         }
     }
@@ -42,11 +42,11 @@ const randomPhrase = getRandomPhraseArray(phrases); /*Returns an index value fro
 addPhraseToDisplay(randomPhrase); /*Adds index value returned from thr getRandomPhraseArray and displays it by creating li elements for each letter*/
 
 const checkLetter = button => {
-    let liContain = document.getElementsByTagName('li');
-    const match = null;
+    let liContain = document.getElementsByClassName('letter');
+    let match = liContain[i].textContent;
     for (let i=0; i < liContain.length; i++) {
         if(button.textContent == liContain[i].textContent) {
-            liContain[i].className = 'show';
+            liContain[i].classList.add('show');
             match.value =  button.value;
         }
     }
@@ -56,7 +56,7 @@ const checkLetter = button => {
 
 qwertyVariable.addEventListener ('click', (e) => {
     if(e.target.value == 'button' && e.target.className !== 'chosen') {
-        e.target.className = 'chosen';
+        e.target.classList.add('chosen');
         let button = e.target.textContent;
        const letterFind = checkLetter(e.target.textContent);
     if(letterFind == null) {
