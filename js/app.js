@@ -1,5 +1,5 @@
 let qwertyVariable = document.getElementById('qwerty');
-let phraseVariable = document.querySelector('#phrases ul');
+let phraseVariable = document.querySelector('#phrase ul');
 const startGame = document.querySelector('.btn__reset');
 let missedQuestion = 0;
 const button = document.getElementsByTagName('button'); 
