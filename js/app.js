@@ -4,7 +4,7 @@ const startGame = document.querySelector('.btn__reset');
 let missedQuestion = 0;
 const button = document.getElementsByTagName('button'); 
 
-let phrases = ['I', 'love', 'creating', 'coding', 'projects'];
+let phrases = ['I love coding', 'Team Treehouse Rocks', 'Demonstrating my Skills', 'The sky is Blue', 'Project 6'];
 
 
 startGame.addEventListener('click', () => {
