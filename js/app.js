@@ -1,5 +1,5 @@
 let qwertyVariable = document.getElementById('qwerty');
-let phraseVariable = document.getElementById('phrase');
+let phraseVariable = document.querySelector('#phrases ul');
 const startGame = document.querySelector('.btn__reset');
 let missedQuestion = 0;
 const button = document.getElementsByTagName('button'); 
@@ -16,9 +16,10 @@ startGame.addEventListener('click', () => {
 const getRandomPhraseArray = (arr) => { /*Returns an index value for the 'phrases array'*/
    /*Gets random number*/
    let randomNumber = Math.floor(Math.random() * phrases.length);
-   return arr[randomNumber];
+   return arr[randomNumber].split('');
 
 };
+
 
 const addPhraseToDisplay = (arr) => {
     
@@ -28,15 +29,15 @@ const addPhraseToDisplay = (arr) => {
         phraseVariable.appendChild(li);
         
         if(arr[i] !== ' ') {
-            li.className = '.letter';
+            li.className = 'letter';
         } else {
-            li.className = '.space';
+            li.className = 'space';
 
         }
     }
 
 };
-const randomPhrase = getRandomPhraseArray(phrases) /*Returns an index value from the phrases array and assigns it to the variable*/
+const randomPhrase = getRandomPhraseArray(arr) /*Returns an index value from the phrases array and assigns it to the variable*/
 
 addPhraseToDisplay(randomPhrase); /*Adds index value returned from thr getRandomPhraseArray and displays it by creating li elements for each letter*/
 
@@ -45,7 +46,7 @@ const checkLetter = button => {
     const match = null;
     for (let i=0; i < liContain.length; i++) {
         if(button.textContent == liContain[i].textContent) {
-            liContain[i].className = '.show';
+            liContain[i].className = 'show';
             match.value =  button.value;
         }
     }
@@ -54,8 +55,8 @@ const checkLetter = button => {
 };
 
 qwertyVariable.addEventListener ('click', (e) => {
-    if(e.target.value == 'button' && e.target.className !== '.chosen') {
-        e.target.className = '.chosen';
+    if(e.target.value == 'button' && e.target.className !== 'chosen') {
+        e.target.className = 'chosen';
         let button = e.target.textContent;
        const letterFind = checkLetter(e.target.textContent);
     if(letterFind == null) {
