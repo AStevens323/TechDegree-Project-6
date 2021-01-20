@@ -66,10 +66,11 @@ qwertyVariable.addEventListener ('click', (e) => {
         const letterFind = checkLetter(e.target.textContent);
     if(letterFind == null) {
         let ol = document.querySelectorAll('#scoreboard ol li img');
-        ol[missedQuestion].src = "../images/lostHeart.png";
+        ol[missedQuestion].src = "images/lostHeart.png";
         missedQuestion += 1;
     }
 }
+    checkWin();
 });
 
 const checkWin = () => {
