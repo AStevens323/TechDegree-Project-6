@@ -60,7 +60,8 @@ qwertyVariable.addEventListener ('click', (e) => {
     
     if(e.target.tagName == 'BUTTON' && button.classList != 'chosen') {
         e.target.classList.add('chosen');
-         const letterFind = checkLetter(e.target.textContent);
+        e.target.disabled = true;
+        const letterFind = checkLetter(e.target.textContent);
     if(letterFind == null) {
         let ol = document.querySelectorAll('#scoreboard ol li img');
         ol[missedQuestion].src = "../images/lostHeart.png";
