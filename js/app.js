@@ -38,3 +38,16 @@ const addPhraseToDisplay = (arr) => {
 const randomPhrase = getRandomPhraseArray(phrases) /*Returns an index value from the phrases array and assigns it to the variable*/
 
 addPhraseToDisplay(randomPhrase); /*Adds index value returned from thr getRandomPhraseArray and displays it by creating li elements for each letter*/
+
+const checkLetter = button => {
+    let liContain = document.getElementsByTagName('li');
+    const match = null;
+    for (i=0; i < phrases.length; i++) {
+        if(button.value == liContain.value) {
+            liContain.className = 'show';
+            match.value =  button.value;
+        }
+    }
+
+    return match; 
+}
