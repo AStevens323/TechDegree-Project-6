@@ -43,11 +43,11 @@ addPhraseToDisplay(randomPhrase); /*Adds index value returned from thr getRandom
 
 const checkLetter = button => {
     let liContain = document.getElementsByClassName('letter');
-    let match = liContain[i].textContent;
+    let match = null;
     for (let i=0; i < liContain.length; i++) {
         if(button.textContent == liContain[i].textContent) {
             liContain[i].classList.add('show');
-            match.value =  button.value;
+            match = liContain[i].textContent
         }
     }
 
@@ -55,10 +55,12 @@ const checkLetter = button => {
 };
 
 qwertyVariable.addEventListener ('click', (e) => {
-    if(e.target.value == 'button' && e.target.className !== 'chosen') {
+    let buttonClick = qwertyVariable.getElementsByClassName('keyrow');
+    let button = qwertyVariable.getElementsByTagName('button');
+    
+    if(e.target.tagName == 'BUTTON' && button.classList != 'chosen') {
         e.target.classList.add('chosen');
-        let button = e.target.textContent;
-       const letterFind = checkLetter(e.target.textContent);
+         const letterFind = checkLetter(e.target.textContent);
     if(letterFind == null) {
         let ol = document.querySelectorAll('#scoreboard ol li img');
         ol[missedQuestion].src = "../images/lostHeart.png";
@@ -74,11 +76,11 @@ const checkWin = () => {
 
     if(show.length == letter.length) {
         overlay.style.display = 'block';
-        overlay.className = 'win';
+        overlay.classList.add('win');
     }
 
     if(missedQuestion >= 5) {
         overlay.style.display = 'block';
-        overlay.className = 'lose';
+        overlay.classList.add('lose');
     }
 };
