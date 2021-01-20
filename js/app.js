@@ -37,7 +37,7 @@ const addPhraseToDisplay = (arr) => {
     }
 
 };
-const randomPhrase = getRandomPhraseArray(arr) /*Returns an index value from the phrases array and assigns it to the variable*/
+const randomPhrase = getRandomPhraseArray(phrases); /*Returns an index value from the phrases array and assigns it to the variable*/
 
 addPhraseToDisplay(randomPhrase); /*Adds index value returned from thr getRandomPhraseArray and displays it by creating li elements for each letter*/
 
