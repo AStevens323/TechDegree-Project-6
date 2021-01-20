@@ -4,7 +4,7 @@ const startGame = document.querySelector('.btn__reset');
 let missedQuestion = 0;
 const button = document.getElementsByTagName('button'); 
 
-let phrases = ['I love coding', 'Team Treehouse Rocks', 'Demonstrating my Skills', 'The sky is Blue', 'Project 6'];
+let phrases = ['Orange', 'Blue', 'Green', 'Black', 'Yellow'];
 
 
 startGame.addEventListener('click', () => {
@@ -18,7 +18,7 @@ const getRandomPhraseArray = (arr) => { /*Returns an index value for the 'phrase
    let randomNumber = Math.floor(Math.random() * phrases.length);
    return arr[randomNumber];
 
-}
+};
 
 const addPhraseToDisplay = (arr) => {
     
@@ -35,7 +35,7 @@ const addPhraseToDisplay = (arr) => {
         }
     }
 
-}
+};
 const randomPhrase = getRandomPhraseArray(phrases) /*Returns an index value from the phrases array and assigns it to the variable*/
 
 addPhraseToDisplay(randomPhrase); /*Adds index value returned from thr getRandomPhraseArray and displays it by creating li elements for each letter*/
@@ -51,18 +51,18 @@ const checkLetter = button => {
     }
 
     return match; 
-}
+};
 
 qwertyVariable.addEventListener ('click', (e) => {
     if(e.target.value == 'button' && e.target.className !== '.chosen') {
         e.target.className = '.chosen';
         let button = e.target.textContent;
        const letterFind = checkLetter(e.target.textContent);
-    }
-
     if(letterFind == null) {
         let ol = document.querySelectorAll('#scoreboard ol li img');
         ol[missedQuestion].src = "../images/lostHeart.png";
         missedQuestion += 1;
     }
-})
+}
+});
+
