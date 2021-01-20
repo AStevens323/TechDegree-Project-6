@@ -2,6 +2,7 @@ let qwertyVariable = document.getElementById('qwerty');
 let phraseVariable = document.getElementById('phrase');
 const startGame = document.querySelector('.btn__reset');
 let missedQuestion = 0;
+const button = document.getElementsByTagName('button'); 
 
 let phrases = ['I', 'love', 'creating', 'coding', 'projects'];
 
@@ -27,9 +28,9 @@ const addPhraseToDisplay = (arr) => {
         phraseVariable.appendChild(li);
         
         if(arr[i] !== ' ') {
-            li.className = 'letter';
+            li.className = '.letter';
         } else {
-            li.className = 'space';
+            li.className = '.space';
 
         }
     }
@@ -44,10 +45,24 @@ const checkLetter = button => {
     const match = null;
     for (let i=0; i < liContain.length; i++) {
         if(button.textContent == liContain[i].textContent) {
-            liContain[i].className = 'show';
+            liContain[i].className = '.show';
             match.value =  button.value;
         }
     }
 
     return match; 
 }
+
+qwertyVariable.addEventListener ('click', (e) => {
+    if(e.target.value == 'button' && e.target.className !== '.chosen') {
+        e.target.className = '.chosen';
+        let button = e.target.textContent;
+       const letterFind = checkLetter(e.target.textContent);
+    }
+
+    if(letterFind == null) {
+        let ol = document.querySelectorAll('#scoreboard ol li img');
+        ol[missedQuestion].src = "../images/lostHeart.png";
+        missedQuestion += 1;
+    }
+})
