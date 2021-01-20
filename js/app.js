@@ -2,9 +2,11 @@ let qwertyVariable = document.getElementById('qwerty');
 let phraseVariable = document.querySelector('#phrase ul');
 const startGame = document.querySelector('.btn__reset');
 let missedQuestion = 0;
-const button = document.getElementsByTagName('button'); 
+const button = document.getElementsByTagName('button');
+const displayOverlay = document.getElementById('overlay'); 
 
 let phrases = ['Orange', 'Blue', 'Green', 'Black', 'Yellow'];
+
 
 
 startGame.addEventListener('click', () => {
@@ -45,7 +47,7 @@ const checkLetter = button => {
     let liContain = document.getElementsByClassName('letter');
     let match = null;
     for (let i=0; i < liContain.length; i++) {
-        if(button.textContent == liContain[i].textContent) {
+        if(button === liContain[i].textContent.toLowerCase()) {
             liContain[i].classList.add('show');
             match = liContain[i].textContent
         }
@@ -73,15 +75,14 @@ qwertyVariable.addEventListener ('click', (e) => {
 const checkWin = () => {
     let letter = document.querySelectorAll('.letter');
     let show = document.querySelectorAll('.show');
-    const overlay = document.getElementById('overlay');
 
     if(show.length == letter.length) {
-        overlay.style.display = 'block';
-        overlay.classList.add('win');
+        displayOverlay.style.display = 'block';
+        displayOverlay.classList.add('win');
     }
 
     if(missedQuestion >= 5) {
-        overlay.style.display = 'block';
-        overlay.classList.add('lose');
+        displayOverlay.style.display = 'block';
+        displayOverlay.classList.add('lose');
     }
 };
