@@ -66,3 +66,18 @@ qwertyVariable.addEventListener ('click', (e) => {
 }
 });
 
+const checkWin = () => {
+    let letter = document.querySelectorAll('.letter');
+    let show = document.querySelectorAll('.show');
+    const overlay = document.getElementById('overlay');
+
+    if(show.length == letter.length) {
+        overlay.style.display = 'block';
+        overlay.className = 'win';
+    }
+
+    if(missedQuestion >= 5) {
+        overlay.style.display = 'block';
+        overlay.className = 'lose';
+    }
+};
