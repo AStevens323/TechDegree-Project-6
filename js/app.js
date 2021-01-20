@@ -42,9 +42,9 @@ addPhraseToDisplay(randomPhrase); /*Adds index value returned from thr getRandom
 const checkLetter = button => {
     let liContain = document.getElementsByTagName('li');
     const match = null;
-    for (i=0; i < phrases.length; i++) {
-        if(button.value == liContain.value) {
-            liContain.className = 'show';
+    for (let i=0; i < liContain.length; i++) {
+        if(button.textContent == liContain[i].textContent) {
+            liContain[i].className = 'show';
             match.value =  button.value;
         }
     }
